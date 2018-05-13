@@ -4,6 +4,9 @@ import requests
 import tweepy
 import pymongo
 from splinter import Browser
+import json
+from config import consumer_key,consumer_secret,access_token,access_token_secret
+import pandas as pd
 
 # Scrape function
 def Scrape():
@@ -23,7 +26,7 @@ def Scrape():
 
     #Parsing html
     html = browser.html
-    soup = BeautifulSoup(html, 'html.parser')
+    soup = bs(html, 'html.parser')
     #print(soup.prettify())
 
     #Scrapping latest news: title and content
@@ -46,7 +49,7 @@ def Scrape():
 
     #Parsing html
     html = browser.html
-    soup = BeautifulSoup(html, 'html.parser')
+    soup = bs(html, 'html.parser')
     #print(soup.prettify())
 
     #Scraping feature image of mars
@@ -66,8 +69,7 @@ def Scrape():
 
     ## Tweeter Mars Weather
     print("Scraping Tweeter Mars Weather")
-    import json
-    from config import consumer_key,consumer_secret,access_token,access_token_secret
+
 
     # Setup Tweepy API Authentication
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -84,14 +86,14 @@ def Scrape():
     mars_current_weather=public_tweets[0]["text"]
 
     # Adding to dict
-    dic_mars_info["Mars Weather"] = mars_current_weather
+    dic_mars_info["mars_weather"] = mars_current_weather
 
     print("Mars Weather Tweet Results:")
     print(mars_current_weather)
 
     ## Mars Facts with Pandas
     print("Scraping Mars Facts")
-    import pandas as pd
+
 
     # Mars Facts URL
     url = "https://space-facts.com/mars/"
@@ -105,9 +107,9 @@ def Scrape():
 
     #Convert dataframe into html table
     html_table = df.to_html()
-    
+
     # Adding to dict
-    dic_mars_info["Mars Facts table"] = html_table
+    dic_mars_info["mars_facts_table"] = html_table
 
     print("Mars Facts Results:")
     print(html_table)
@@ -209,8 +211,8 @@ def Scrape():
     # Filling Dictionary
     hemisphere_image_urls.append(dic_mars_syrtis)
 
-     # Adding to dict
-    dic_mars_info["Mars Hemisphere Images"] = hemisphere_image_urls
+        # Adding to dict
+    dic_mars_info["mars_hemisphere_images"] = hemisphere_image_urls
 
     print("Mars Hemisphere Results:")
     print(hemisphere_image_urls)

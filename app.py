@@ -12,6 +12,11 @@ client = pymongo.MongoClient(conn)
 db = client.mars_db
 
 
+# @app.route("/")
+# def echo():
+#     #return "<h1>Testing Flask</h1>"
+#     return render_template("index.html", text="Ppachiiiito")
+
 @app.route("/")
 def index():
     mars_info = db.mars_db.find_one()

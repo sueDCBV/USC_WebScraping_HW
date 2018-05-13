@@ -22,70 +22,7 @@
         </div>
     </header>
 
-    <!-- Latest Mars News -->
-    <div class="container" style="width:100%">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Latest Mars News</h2>
-                <h3>{{ mars_info.news_title }}</h3>
-                <p>{{ mars_info.news_p }}</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Featured Mars Image / Current Weather on Mars / Mars Facts -->
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel">
-                <div class="panel-body">
-                    <h2>Featured Mars Image</h2>
-                    <img src=  {{ mars_info.featured_image_url }} alt="" class="featured">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="panel border">
-                <div class="panel-body">
-                    <h2>Current Weather on Mars</h2>
-                    <p>{{ mars_info.mars_weather }}</p>
-                </div>
-            </div>
-            <div class="panel">
-                <div class="panel-body">
-                    <h2>Mars Facts</h2>
-                    {{ mars_info.profile_html|safe }}
-                </div>
-            </div>
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-
-    <!-- Mars Hemispheres -->
-    <h2 class="hemispheres">Mars Hemispheres</h2>
-    <div class="row" style="padding-bottom:20px">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-5 border">
-            <img src={{ mars_info.hemisphere_image_urls[0]["img_url"] }} alt="" style="width:100%">
-            <p class="caption">{{ mars_info.hemisphere_image_urls[0]["title"] }}</p>
-        </div>
-        <div class="col-sm-5 border" >
-            <img src={{ mars_info.hemisphere_image_urls[1]["img_url"] }} alt="" style="width:100%">
-            <p class="caption">{{ mars_info.hemisphere_image_urls[1]["title"] }}</p>
-        </div>
-        <div class="col-sm-1"></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-5 border" >
-            <img src={{ mars_info.hemisphere_image_urls[2]["img_url"] }} alt="" style="width:100%">
-            <p class="caption">{{ mars_info.hemisphere_image_urls[2]["title"] }}</p>
-        </div>
-        <div class="col-sm-5 border" >
-            <img src={{ mars_info.hemisphere_image_urls[3]["img_url"] }} alt="" style="width:100%">
-            <p class="caption">{{ mars_info.hemisphere_image_urls[3]["title"] }}</p>
-        </div>
-        <div class="col-sm-1"></div>
-    </div>
+    <h2>{{text}}</h2>
 
 </body>
 </html>
